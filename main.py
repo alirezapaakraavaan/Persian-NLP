@@ -6,6 +6,7 @@ from src.remove_latin_characters import remove_latin_characters
 from src.remove_punctuations import remove_punctuations
 from src.remove_hashtags import remove_hashtags
 from src.tokenization import tokenization
+from src.remove_repeated_characters import remove_repeted_characters
 
 
 data = load('data.csv')
@@ -17,4 +18,5 @@ no_punc_data = remove_punctuations(no_latin_data)
 no_hashtag_data = remove_hashtags(no_punc_data)
 clean_data = remove_new_lines_and_tabs(no_hashtag_data)
 tokens, tokens_count = tokenization(clean_data)
-print(tokens, tokens_count)
+clean_tokens, clean_tokens_count = remove_repeted_characters(tokens)
+print(clean_tokens, clean_tokens_count)
